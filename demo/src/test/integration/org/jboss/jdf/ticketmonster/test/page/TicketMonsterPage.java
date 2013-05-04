@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class TicketMonsterPage {
 
-    @FindBy(id = "content")
+    @FindBy
     private WebElement content;
     @FindBy(className = "special-title")
     private WebElement pageHeader;

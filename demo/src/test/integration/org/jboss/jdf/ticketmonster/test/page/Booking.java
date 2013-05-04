@@ -15,7 +15,7 @@ public class Booking extends TicketMonsterPage {
     private WebElement bookButton;
 
     public void book() {
-        Graphene.guardXhr(bookButton).click();
+        Graphene.guardAjax(bookButton).click();
     }
 
     public void selectVenue(String venue) {

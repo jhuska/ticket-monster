@@ -12,7 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(Arquillian.class)
-public class TestEvents extends AbstractTicketMonsterTest {
+public class ITTestEvents extends AbstractTicketMonsterTest {
 
     @Page
     private Events events;
@@ -49,5 +49,4 @@ public class TestEvents extends AbstractTicketMonsterTest {
 
         Assert.assertEquals("Booking #1 confirmed!", finished.getTitle());
     }
-
 }

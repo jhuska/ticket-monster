@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class Checkout extends TicketMonsterPage {
 
-    @FindBy(id = "sectionSelect")
+    @FindBy
     private Select sectionSelect;
     @FindBy(name = "tickets-1")
     private WebElement numberOfTickets;
@@ -32,7 +32,7 @@ public class Checkout extends TicketMonsterPage {
     public void checkout(String email) {
         emailInput.click();
         emailInput.sendKeys(email);
-        Graphene.guardXhr(checkout).click();
+        Graphene.guardAjax(checkout).click();
     }
 
 }

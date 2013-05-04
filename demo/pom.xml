@@ -27,7 +27,7 @@
 		<!-- Alternatively, comment out the above line, and un-comment the line 
 			below to use version 1.0.0.M10-redhat-1 which is a release certified to work 
 			with JBoss EAP 6. It requires you have access to the JBoss EAP 6 maven repository. -->
-		<jboss.bom.version>1.0.5.CR2</jboss.bom.version>
+		<jboss.bom.version>1.0.7.CR1</jboss.bom.version>
 		<buildhelper.plugin.version>1.7</buildhelper.plugin.version>
 
 		<!-- Testing -->
@@ -50,6 +50,13 @@
 				stack (you can read this as the JBoss stack of the Java EE 6 APIs, with support 
 				for Errai) -->
 
+			<!-- <dependency> -->
+			<!-- <groupId>org.jboss.bom</groupId> -->
+			<!-- <artifactId>jboss-javaee-6.0-with-tools</artifactId> -->
+			<!-- <version>${jboss.bom.version}</version> -->
+			<!-- <type>pom</type> -->
+			<!-- <scope>import</scope> -->
+			<!-- </dependency> -->
 			<dependency>
 				<groupId>org.jboss.bom</groupId>
 				<artifactId>jboss-javaee-6.0-with-hibernate</artifactId>
@@ -236,14 +243,12 @@
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-user</artifactId>
 			<scope>provided</scope>
-			<version>2.5.1</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-dev</artifactId>
 			<scope>provided</scope>
-			<version>2.5.1</version>
 		</dependency>
 
 		<!-- Now we declare any tools needed -->
@@ -278,7 +283,7 @@
 			<artifactId>shrinkwrap-resolver-depchain</artifactId>
 			<type>pom</type>
 			<scope>test</scope>
-			<version>2.0.0-beta-3</version>
+			<version>1.0.0-beta-7</version>
 		</dependency>
 
 		<dependency>
@@ -432,6 +437,7 @@
 				<integration.test.source>src/test/integration</integration.test.source>
 				<arquillian.drone.browser>firefox</arquillian.drone.browser>
 				<arquillian.drone.reusable>false</arquillian.drone.reusable>
+				<integration.test.pattern>**/**/IT*.java</integration.test.pattern>
 			</properties>
 			<dependencies>
 				<dependency>
@@ -501,6 +507,10 @@
 								<id>default-test</id>
 								<configuration>
 									<skipTests>true</skipTests>
+									<test>${test}</test>
+									<excludes>
+										<exclude>${integration.test.pattern}</exclude>
+									</excludes>
 								</configuration>
 							</execution>
 							<execution>
@@ -509,6 +519,12 @@
 								<goals>
 									<goal>test</goal>
 								</goals>
+								<configuration>
+									<test>${test}</test>
+									<includes>
+										<include>${integration.test.pattern}</include>
+									</includes>
+								</configuration>
 							</execution>
 						</executions>
 					</plugin>
