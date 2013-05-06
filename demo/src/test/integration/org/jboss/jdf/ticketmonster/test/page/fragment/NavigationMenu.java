@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 
 public class NavigationMenu {
 
-    @FindBy(className = "accordion-group")
+    @FindBy(className = "accordion-inner")
     private WebElement toWait;
 
     @FindBy(className = "accordion-group")
