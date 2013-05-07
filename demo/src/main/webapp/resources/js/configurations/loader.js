@@ -15,9 +15,9 @@ define(function () {
     }
     else if (navigator.userAgent == "TicketMonster Cordova Webview Android") {
         environment = "hybrid-android"
-    }
-    else if (Modernizr.touch || Modernizr.mq("only all and (max-width: 480px)")) {
-        environment = "mobile"
+    
+    //else if (Modernizr.touch || Modernizr.mq("only all and (max-width: 480px)")) {
+      //  environment = "mobile"
     } else {
         environment = "desktop"
     }

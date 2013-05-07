@@ -6,6 +6,7 @@ import org.jboss.arquillian.graphene.Graphene;
 import org.jboss.arquillian.graphene.enricher.findby.FindBy;
 import org.openqa.selenium.WebElement;
 
+
 public class NavigationMenu {
 
     @FindBy(className = "accordion-inner")
@@ -15,7 +16,7 @@ public class NavigationMenu {
     private List<MenuGroup> menuGroups;
 
     public void waitUntilMenuIsLoaded() {
-        Graphene.waitGui()
+        Graphene.waitModel()
                 .until()
                 .element(toWait)
                 .is()

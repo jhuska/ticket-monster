@@ -47,6 +47,6 @@ public class ITTestEvents extends AbstractTicketMonsterTest {
         checkout.addTickets("A - Premier platinum reserve", 2);
         checkout.checkout("example@example.com");
 
-        Assert.assertEquals("Booking #1 confirmed!", finished.getTitle());
+        Assert.assertTrue(finished.getTitle().contains("confirmed!"));
     }
 }

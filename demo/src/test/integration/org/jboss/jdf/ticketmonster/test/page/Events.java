@@ -1,14 +1,11 @@
 package org.jboss.jdf.ticketmonster.test.page;
 
-import static org.jboss.arquillian.graphene.Graphene.waitAjax;
+import static org.jboss.arquillian.graphene.Graphene.guardAjax;
 
 import org.jboss.arquillian.graphene.enricher.findby.FindBy;
 import org.jboss.jdf.ticketmonster.test.page.fragment.MenuGroup;
 import org.jboss.jdf.ticketmonster.test.page.fragment.NavigationMenu;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import com.google.common.base.Predicate;
 
 public class Events extends TicketMonsterPage {
 
@@ -33,13 +30,7 @@ public class Events extends TicketMonsterPage {
 
     public void goToConcert(final String concert) {
         MenuGroup concerts = verticalMenu.getMenuGroup(0);
-        concerts.getMenuItem(concert).toggle();
-        waitAjax().until(new Predicate<WebDriver>() {
-            @Override
-            public boolean apply(WebDriver input) {
-                return titleOfTheConcert.getText().trim().equals(concert);
-            }
-        });
+        guardAjax(concerts.getMenuItem(concert)).toggle();
     }
 
 }

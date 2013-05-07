@@ -23,13 +23,7 @@
 		is the most mature -->
 	<defaultProtocol type="Servlet 3.0" />
 
-	<extension qualifier="sauce-webdriver">
-		<property name="userName">richfaces-jhuska</property>
-		<property name="accessKey">13c46540-9357-48bd-8e69-e40414d76627</property>
-		<property name="browser">firefox</property>
-		<property name="os">Windows 2008</property>
-		<property name="version">4.</property>
-	</extension>
+	
 
 	<container qualifier="arq-jbossas-managed">
 	</container>
